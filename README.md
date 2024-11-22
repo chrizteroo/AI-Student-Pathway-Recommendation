@@ -1,4 +1,4 @@
-# Educational Pathway Recommender
+# Educational Pathway Recommender AISPR
 
 This project is a hybrid recommendation system that guides students on educational pathways based on their subjects, interests, and other factors.
 
@@ -12,8 +12,14 @@ This project is a hybrid recommendation system that guides students on education
 ## How to Run
 
 1. Install dependencies:
+# Create .env
+OPENAI_API_KEY
+npm install dotenv
+
+
 
    ```bash
    npm install
-# AI-Student-Pathway-Recommendation
-# AI-Student-Pathway-Recommendation
+cd to AISPR
+NODE_PATH=src node server.js 
+# AISPR
