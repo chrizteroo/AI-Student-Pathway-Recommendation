@@ -16,3 +16,4 @@ This project is a hybrid recommendation system that guides students on education
    ```bash
    npm install
 # AI-Student-Pathway-Recommendation
+# AI-Student-Pathway-Recommendation
