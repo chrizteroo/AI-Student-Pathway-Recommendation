@@ -1,0 +1,13 @@
+career_id,name,related_courses
+CR1,Physicist,"C3, C12, C14, C33"
+CR2,Software Engineer,"C2, C26, C30"
+CR3,Artist,"C5, C6, C29, C32"
+CR4,Business Manager,"C8, C13, C21"
+CR5,Environmental Scientist,"C4, C7, C23"
+CR6,Mathematician,"C1, C22, C9"
+CR7,Psychologist,"C18, C24, C25"
+CR8,Teacher,"C19, C34, C15"
+CR9,Biologist,"C5, C28, C20"
+CR10,Entrepreneur,"C21, C13, C8"
+CR11,Writer,"C15, C27, C34"
+CR12,Actor,"C31, C34, C17"

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Recommendations</title>
+  <script>
+    async function getRecommendations() {
+      const name = document.getElementById('studentName').value;
+      if (!name) {
+        alert('Please enter a student name');
+        return;
+      }
+
+      const response = await fetch('http://localhost:3000/api/recommend', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name }),
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        document.getElementById('recommendations').innerText = JSON.stringify(data, null, 2);
+      } else {
+        alert('Student not found');
+      }
+    }
+
+    async function submitFeedback() {
+      const studentId = document.getElementById('feedbackStudentId').value;
+      const studentName = document.getElementById('feedbackStudentName').value;
+      const rating = document.getElementById('feedbackRating').value;
+
+      if (!studentId || !studentName || !rating) {
+        alert('Please fill in all feedback fields');
+        return;
+      }
+
+      const response = await fetch('http://localhost:3000/api/feedback', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ studentId, studentName, rating }),
+      });
+
+      if (response.ok) {
+        alert('Feedback submitted successfully');
+      } else {
+        alert('Error submitting feedback');
+      }
+    }
+  </script>
+</head>
+<body>
+  <h1>Student Recommendations</h1>
+
+  <section>
+    <h2>Get Recommendations</h2>
+    <input type="text" id="studentName" placeholder="Enter student name">
+    <button onclick="getRecommendations()">Get Recommendations</button>
+    <pre id="recommendations"></pre>
+  </section>
+
+  <section>
+    <h2>Submit Feedback</h2>
+    <input type="text" id="feedbackStudentId" placeholder="Student ID">
+    <input type="text" id="feedbackStudentName" placeholder="Student Name">
+    <input type="number" id="feedbackRating" placeholder="Rating (1-5)">
+    <button onclick="submitFeedback()">Submit Feedback</button>
+  </section>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Educational Pathway Recommender</title>
+</head>
+<body>
+  <h1>Educational Pathway Recommender</h1>
+  <form id="recommendForm">
+    <label for="name">Enter Student Name:</label>
+    <input type="text" id="name" name="name" required>
+    <button type="submit">Get Recommendations</button>
+  </form>
+  <div id="output"></div>
+
+  <script>
+    document.getElementById('recommendForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const name = document.getElementById('name').value;
+
+      const response = await fetch('/api/recommend', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name }),
+      });
+
+      const result = await response.json();
+      document.getElementById('output').innerText = JSON.stringify(result, null, 2);
+    });
+  </script>
+</body>
+</html>
